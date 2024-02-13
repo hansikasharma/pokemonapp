@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+:root{
+	--red: #ba625b;
+	--black: #211919;
+	--green: #7d9460;
+	--light-green: #f0f7e6;
+	--light-blue: #dde2f0;
+	--light-black: #9b9c9e;
+	
+	
+}
+.nav-bar{
+	width: 100%;
+	background-color:  var(--light-blue);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.5rem;
+	flex-wrap:wrap;
+	box-shadow: 1px 1px 3px var(--light-black);
+	position: sticky;
+	
+}
+.brand{
+	width: clamp(100px,20%,600px);
+	list-style-type: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.nav-links{
+	width: clamp(100px,40%,800px);
+	list-style-type: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+}
+.logo{
+	
+	height: 3rem;
+	background-color: var(--red);
+	margin: auto;
+	
+}
+a{
+	text-decoration:none;
+}
+/* Login form css */
+.login-form-container {
+    width: clamp(300px,56%,1000px);
+    margin: 2rem auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-wrap: wrap;
+}
+form{
+	width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+	width:100%;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form > button:hover {
+    background-color: #0056b3;
+}

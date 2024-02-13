@@ -1,0 +1,77 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    width:clamp(300px,60%,1900px);
+    margin: 3rem auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+  }
+  
+  h2 {
+    color: #ffcb05 ;
+    margin-bottom: 20px;
+  }
+  
+  .user-details {
+    margin-bottom: 20px;
+  }
+  
+  .detail-label {
+    font-size: 1.5rem;
+  }
+  
+  .team-section {
+    border-top: 2px solid #ffcb05;
+    padding-top: 20px;
+  }
+  
+  h3 {
+    color:#ffcb05
+  }
+  
+  .team-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .team-item {
+    margin-bottom: 10px;
+  }
+  
+  .team-name {
+    font-weight: bold;
+  }
+  
+.mem-cont{
+  width:clamp(200px,80%,1900px);
+  margin: 1rem auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.member{
+  width: clamp(100px,20%,600px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 3rem auto;
+  background-color: #f8f8f8;
+}
+.mem-img{
+  width: 80%;
+  border-radius: 10px;
+}
+.mem-name{
+  font-weight: bolder;
+}
+.del-mem{
+  width: 100%;
+  margin: 0 auto;
+  background-color: tomato;
+}
+.mem-img > img{
+  width: 100%;
+
+}
