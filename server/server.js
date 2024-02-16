@@ -7,7 +7,14 @@ var cors = require('cors');
 const UserRouter = require('./routes/UserRoutes')
 const TeamRouter = require('./routes/TeamRoutes')
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
-app.use(express.json());app.use(cors());
+app.use(express.json());
+app.use(cors(
+  {
+    origin: ["https://pokemonapp-beige.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+));
 app.use('/api/v1/user', UserRouter);
 app.use('/api/v1/team', TeamRouter);
 
