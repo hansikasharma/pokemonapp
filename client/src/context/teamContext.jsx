@@ -8,7 +8,7 @@ export const TeamProvider = ({ children }) => {
    
    const getAllTeams = async(username) =>{
    
-        const response = await fetch(`http://localhost:3000/api/v1/team/${username}`)
+        const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/team/${username}`)
         const data = await response.json();
         setTeams(data.data.team);
         
@@ -17,19 +17,19 @@ export const TeamProvider = ({ children }) => {
    }
 
    const deleteMember = async(memid,teamid) =>{
-    const response = await fetch(`http://localhost:3000/api/v1/team/delete-member/${teamid}/${memid}`)
+    const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/team/delete-member/${teamid}/${memid}`)
         const data = await response.json()
         setTeams([...teams,data.data.team]);
 
    }
    const deleteTeam = async(teamid) =>{
-    const response = await fetch(`http://localhost:3000/api/v1/team/delete-team/${teamid}`)
+    const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/team/delete-team/${teamid}`)
     const data = await response.json()
     await getAllTeams();
 
    }
    const addToTeam = async(teamid,mname,msprite,mtype) =>{
-    const response = await fetch(`http://localhost:3000/api/v1/team/addtoteam/${teamid}`,{
+    const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/team/addtoteam/${teamid}`,{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -45,7 +45,7 @@ export const TeamProvider = ({ children }) => {
     setTeams([...teams,data.data.team]);
    }
    const updateTeamName = async(teamid,tname) =>{
-    const response = await fetch(`http://localhost:3000/api/v1/team/update-team/${teamid}`,{
+    const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/team/update-team/${teamid}`,{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -60,7 +60,7 @@ export const TeamProvider = ({ children }) => {
    }
 
    const createTeam = async(tname,uname) =>{
-    const response = await fetch(`http://localhost:3000/api/v1/team/newteam`,{
+    const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/team/newteam`,{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({

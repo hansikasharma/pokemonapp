@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 
 	
 const getUser = async (email,pwd) => {
-    const response = await fetch(`http://localhost:3000/api/v1/user/login`,{
+    const response = await fetch(`https://pokemonapp-n3vx-api.vercel.app/api/v1/user/login`,{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -27,7 +27,7 @@ const getUser = async (email,pwd) => {
 	
 
     const regisUser = async (username,pwd,name,email) => {
-        const response = await fetch('http://localhost:3000/api/v1/user/register',{
+        const response = await fetch('https://pokemonapp-n3vx-api.vercel.app/api/v1/user/register',{
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({
