@@ -60,8 +60,11 @@ const Pokemoncard = (pokemon) => {
                 </div>
             </div>
             </Link>
-          <button onClick={()=>{setAdd(!add)}}> Add to Team</button>
-          {add?(<AddToTeam pokemon={pokemon} user={user} />):<></>}
+          { user?(
+            !user.error? <button onClick={()=>{setAdd(!add)}}> Add to Team</button>:<></>):(<></>)
+          }
+          
+        {add?(<AddToTeam pokemon={pokemon} user={user} />):<></>}
 
 		</div>):
 		(<h1>Not found</h1>)}
