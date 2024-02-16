@@ -10,7 +10,7 @@ const Dashboard = ({ user }) => {
    const{getAllTeams,teams,updateTeamName} = useContext(TeamContext);
    useEffect(() =>{
     getAllTeams(user.userdata.user.username)
-   },[])
+   },[teams])
    const handleSubmit = async(e) =>{
     e.preventDefault()
     await updateTeamName(tid,name)

@@ -2,12 +2,10 @@ import {createContext, useState, useEffect, useContext} from 'react'
 import {AuthContext} from './userAuth'
 export const TeamContext = createContext({});
 export const TeamProvider = ({ children }) => {
-    const{user} = useContext(AuthContext);
+
   
    const[teams,setTeams] = useState([]);
-   useEffect(() =>{
-    if(user)getAllTeams(user.userdata.user.username)
-   },[teams])
+   
    const getAllTeams = async(username) =>{
    
         const response = await fetch(`http://localhost:3000/api/v1/team/${username}`)
@@ -99,3 +97,4 @@ export const TeamProvider = ({ children }) => {
             </TeamContext.Provider>
         )
 }
+// 

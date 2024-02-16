@@ -14,9 +14,9 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
          await regisUser(username,password,name,email)
-         if(user){
+         if(user && !user.error){
             navigate('/')
-         }
+        }
       
 };
 
@@ -67,6 +67,12 @@ const SignUp = () => {
                 <button type="submit">Submit</button>
             </form>
             <Link to = "/login">Already Registered? Login Here</Link>
+            {user?(
+                user.error?<p className='pokemon-name'>{user.message}</p>:<></>
+            ):(
+                <></>
+            )
+            }
         </div>
     );
 };

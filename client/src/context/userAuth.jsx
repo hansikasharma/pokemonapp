@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
 	localStorage.setItem("user", JSON.stringify(user))
 }, [user])
 
+
 	
 const getUser = async (email,pwd) => {
     const response = await fetch(`http://localhost:3000/api/v1/user/login`,{
@@ -19,7 +20,8 @@ const getUser = async (email,pwd) => {
             })
         })
     const data = await response.json();
-    setUser(data);
+ 
+    setUser(data);   console.log(user)
     
 	}
 	
@@ -42,7 +44,7 @@ const getUser = async (email,pwd) => {
         setUser(data);
         
     };
-
+   
 	
 
 return (
@@ -51,7 +53,8 @@ return (
 			user,
 			getUser,
 			regisUser,
-			setUser
+			setUser,
+            
 			}}
 			>
 			{children}

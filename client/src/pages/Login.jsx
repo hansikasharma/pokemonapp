@@ -3,16 +3,26 @@ import{Link, useNavigate} from 'react-router-dom'
 import { AuthContext } from './../context/userAuth'
 function Login() {
     const navigate = useNavigate();
-    const { getUser, user } = useContext(AuthContext);
+    const { getUser, user,setUser } = useContext(AuthContext);
     const [username, setUsername] = useState("");
+   
+	
+    console.log(user)
+    
+	
    
     const [password, setPassword] = useState("");
     const handleSubmit = async (event) => {
         event.preventDefault();
      await  getUser(username,password)
-       navigate('/');
+       if(user && !user.error){
+            navigate('/')
+        }
+    }
+        
        
-    };
+    
+   
 
     return (
         <div className="login-form-container">
@@ -38,6 +48,12 @@ function Login() {
                 </div>
                 <button type="submit">Login</button>
             </form>
+            {user?(
+                user.error?<p className='pokemon-name'>{user.message}</p>:<></>
+            ):(
+                <></>
+            )
+            }
             <Link to = "/register">New? Register Here</Link>
         </div>
     );

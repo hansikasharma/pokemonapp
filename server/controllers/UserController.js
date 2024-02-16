@@ -2,15 +2,25 @@ const User = require('./../models/UserModel');
 exports.login = async (req, res) => {
 	try{// if(!user.validPassword(req.body.password))
 		const user = await User.findOne({username: req.body.username}).exec();
+       if(!user){
+        res.status(400).json({
+            status: 'fail',
+            error:true,
+            message: 'user not found please Register'
+            })
+            return
+       }
         if(!user.validPassword(req.body.password)){
             res.status(400).json({
                 status: 'fail',
+                error:true,
                 message: 'passwords not matched'
                 })
         }
         else{
                 res.status(200).json({
                     status: 'success',
+                    error:false,
                     userdata: {
                         user
                     }})
@@ -24,12 +34,12 @@ exports.login = async (req, res) => {
             console.log(err)
 		res.status(400).json({
 			status: 'fail',
-			message: err
-		})
+            error:true,
+			message: 'some error occured'		})
 	}
 };
 exports.signup = async (req, res) => {
-	console.log(req.body)
+	
     try{
 		var new_user = new User({
             username: req.body.username,
@@ -38,47 +48,41 @@ exports.signup = async (req, res) => {
 
         });
         new_user.password = new_user.generateHash(req.body.password);
-       try{ 
-        try{
-          await new_user.save()
+       await new_user.save()
+       res.status(201).json({
+        status: 'success',
+        error:false,
+        data: {
+            user: new_user
+        }
+    });
         }catch(err){
+        if(err.code===11000){
             res.status(201).json({
                 status: 'fail',
-                data: {
-                    err:err
-                }
+                error: true,
+                message: 'User Already Exists'
             });
+            
+            return;
+        }
+            res.status(201).json({
+                status: 'fail',
+                error: true,
+                message: 'some error occured'
+            });
+            console.log(err)
             return;
         }
 
-        res.status(201).json({
-			status: 'success',
-			data: {
-				user: new_user
-			}
-		});
-    }catch(err){
-        res.status(400).json({
-			status: 'failed',
-			message: err
-		});
-       
+        
     }
-       
-       
-	}catch(err){
-        res.status(400).json({
-			status: 'failed',
-			message: err
-		});
-        console.log(err);
-    }
-}
 exports.sayHi = async (req,res) => {
     res.status(200).json({
         status: 'success',
+        error:false,
         data:{
-            message: 'hello'
+            message: 'Hello to the bakend of pokemon app, this place makes it work'
         }
     });
 };

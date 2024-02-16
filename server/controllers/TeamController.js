@@ -30,7 +30,7 @@ exports.addToTeam  = async(req,res) => {
          
         }
         res.status(200).json({
-            status: 'sucess',
+            status: 'success',
             data: {
                 team: updatedTeam
             }
@@ -42,9 +42,7 @@ exports.addToTeam  = async(req,res) => {
         catch(err){
             res.status(201).json({
                 status: 'fail',
-                data: {
-                    err:err
-                }
+                message:'failed to Update'
             });
             return;
         }
@@ -60,7 +58,7 @@ exports.getAllTeams = async(req,res) =>{
       
   }
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     data: {
         team: teams
     }
@@ -69,9 +67,7 @@ exports.getAllTeams = async(req,res) =>{
 }catch(err){
     res.status(201).json({
         status: 'fail',
-        data: {
-            err:err
-        }
+        message:'failed to find teams for this user'
     });
     return;
 }
@@ -90,7 +86,7 @@ exports.deleteMember = async(req,res) =>{
         }
         
         res.status(200).json({
-            status: 'sucess',
+            status: 'success',
             data: {
                 team: updatedTeam
             }
@@ -99,9 +95,7 @@ exports.deleteMember = async(req,res) =>{
         }catch(err){
             res.status(201).json({
                 status: 'fail',
-                data: {
-                    err:err
-                }
+               message:'failed deleting member'
             });
             return;
         }
@@ -122,7 +116,7 @@ exports.updateTeam = async(req,res) =>{
             }
               
         res.status(200).json({
-            status: 'sucess',
+            status: 'success',
             data: {
                 team: updatedTeam
             }
@@ -132,9 +126,7 @@ exports.updateTeam = async(req,res) =>{
         }catch(err){
             res.status(201).json({
                 status: 'fail',
-                data: {
-                    err:err
-                }
+               message:'failed to change name'
             });
             return;
         }
@@ -156,8 +148,16 @@ exports.deleteTeam = async(req,res) =>{
                 } catch(err){
                 res.status(400).json({
                     status: 'fail',
-                    message: 'invalid data'
+                    message: 'Failed to delte team'
                 })
                 console.log(err)
             }
 }
+exports.sayHi = async (req,res) => {
+    res.status(200).json({
+        status: 'success',
+        data:{
+            message: 'Hello to the bakend of pokemon app, this place makes it work'
+        }
+    });
+};

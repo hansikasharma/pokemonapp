@@ -5,7 +5,8 @@ import{AuthContext} from './../context/userAuth'
 
 const Navbar = () => {
 	const {user, setUser} = useContext(AuthContext);
-	console.log(user)
+	
+	
 	const s = "";
 	return(
 		<>
@@ -16,9 +17,22 @@ const Navbar = () => {
 			</ul></Link>
 			<ul className = "nav-links">
 			<Link to ="/aboutus"><li><a href = "#">About Us</a></li></Link>
-				<Link to = '/dashboard'><li><a href = "#">Dashboard</a></li></Link>
-				{user?(<li><a href = "#">Hi!</a></li>):(<Link to = "/login"><li><a href = "#">login</a></li></Link>)}
-				{user?(<li onClick={()=>{setUser(null)}}><a href = "#">Logout</a></li>):(<Link to = "/register"><li><a href = "#">Register</a></li></Link>)}
+			<Link to = '/dashboard'><li><a href = "#">Dashboard</a></li></Link>
+			{
+				user? (
+					!user.error?
+					<a href = "#" onClick={()=>{setUser(null)}}>Logout</a>
+					:<Link to = "/login">Login</Link>
+				): (<Link to = "/login">Login</Link>)
+			}			
+			{
+				user? (
+					!user.error?
+					<a href = "#">Hi</a>
+					:<Link to = "/register">Register</Link>
+				): (<Link to = "/register">Register</Link>)
+			}			
+
 
 				
 			</ul>

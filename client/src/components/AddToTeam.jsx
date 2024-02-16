@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState,useContext,useEffect } from 'react';
 import { TeamContext } from '../context/teamContext';
 
 const AddToTeam = ({ user, pokemon}) => {
@@ -6,8 +6,10 @@ const AddToTeam = ({ user, pokemon}) => {
   const [newTeamName, setNewTeamName] = useState('');
   const [types, setTypes] = useState([]);
  
-  const {addToTeam, createTeam, teams} = useContext(TeamContext);
-
+  const {addToTeam, createTeam, teams,getAllTeams} = useContext(TeamContext);
+  useEffect(() =>{
+    getAllTeams(user.userdata.user.username)
+   },[teams])
 
   const handleAddToTeam = async() => {
    await addToTeam(selectedTeam,pokemon.pokemon.name,pokemon.pokemon.sprites.other.dream_world.front_default,types)
