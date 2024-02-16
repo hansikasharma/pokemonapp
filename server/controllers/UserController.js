@@ -41,19 +41,19 @@ exports.login = async (req, res) => {
 exports.signup = async (req, res) => {
 	
     try{
-		var new_user = new User({
+		var user = new User({
             username: req.body.username,
             name: req.body.name,
             email: req.body.email
 
         });
-        new_user.password = new_user.generateHash(req.body.password);
-       await new_user.save()
+        user.password = user.generateHash(req.body.password);
+       await user.save()
        res.status(201).json({
         status: 'success',
         error:false,
         userdata: {
-             new_user
+             user
         }
     });
         }catch(err){
