@@ -42,6 +42,7 @@ const getUser = async (email,pwd) => {
         const data = await response.json();
 		
         setUser(data);
+	    console.log(user);
         
     };
    
