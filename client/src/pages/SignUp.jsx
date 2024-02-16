@@ -14,11 +14,12 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
          await regisUser(username,password,name,email)
-         if(user && !user.error){
+        
+};
+    if(user && !user.error){
             navigate('/')
         }
       
-};
 
     return (
         <div className="login-form-container">
