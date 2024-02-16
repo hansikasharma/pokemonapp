@@ -10,7 +10,7 @@ const clientOptions = { serverApi: { version: '1', strict: true, deprecationErro
 app.use(express.json());
 app.use(cors(
   {
-    origin: ["https://pokemonapp-beige.vercel.app","http:localhost:5173"],
+    origin: ["https://pokemonapp-beige.vercel.app","http://localhost:5173"],
     methods: ["POST", "GET"],
     credentials: true
   }
